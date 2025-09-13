@@ -2,16 +2,14 @@ services:
   - type: worker
     name: quizbot
     env: python
-    runtime: python3
     buildCommand: pip install -U pip && pip install -r requirements.txt
     startCommand: python main.py
     envVars:
       - key: BOT_TOKEN
-        sync: false     # укажем секрет позже в Render
+        sync: false     # секрет добавим в Render после создания сервиса
       - key: DB_PATH
         value: /data/quizbot.db
     disk:
       name: data
       mountPath: /data
       sizeGB: 1
-
