@@ -2,7 +2,7 @@ services:
   - type: worker
     name: quizbot
     env: python
-    pythonVersion: 3.11
+    runtime: python3
     buildCommand: pip install -U pip && pip install -r requirements.txt
     startCommand: python main.py
     envVars:
@@ -14,3 +14,4 @@ services:
       name: data
       mountPath: /data
       sizeGB: 1
+
